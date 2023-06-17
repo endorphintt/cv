@@ -20,39 +20,51 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
             const deltaVH = event.deltaY / (componentWidth / 600)
             
             if(positionLeft + deltaVW  > 0) {
-                if(positionLeft + deltaVW < (componentWidth / 1500) * 30){
+                if(positionLeft + deltaVW < 300){
                     setPL(deltaVW + positionLeft)
                     console.log(positionLeft, 'STAGE 1')
-                } else if ( positionLeft + deltaVW > (componentWidth / 1500) * 30
-                 && positionLeft + deltaVW < (componentWidth / 1500) * 60) {
+                } else if ( positionLeft + deltaVW > 300 && positionLeft < 500 ) {
                     setPL(positionLeft + deltaVW * (2/3))
-                    if(positionBottom < 100){
+                    if(positionBottom <= 100){
                         setPB(positionBottom + deltaVW * (1/3))
+                    } else {
+                        setPB(100)
                     }
                     console.log(positionLeft, 'STAGE 2')
                     console.log(positionBottom)
-                 } else if ( positionLeft + deltaVW > (componentWidth / 1500) * 60
-                 && positionLeft + deltaVW < (componentWidth / 1500) * 80) {
+                } else if ( positionLeft > 500 && positionLeft < 800) {
                     setPL(positionLeft + deltaVW)
                     console.log(positionLeft, 'STAGE 3')
                     // console.log(positionBottom)
-                 } else if ( positionLeft + deltaVW > (componentWidth / 1500) * 80
-                 && positionLeft + deltaVW < (componentWidth / 1500) * 110) {
+                } else if ( positionLeft > 800 && positionLeft < 1000) {
                     setPL(positionLeft + deltaVW * (2/3))
-                    if(positionBottom > 0){
+                    if(positionBottom - deltaVW * (1/3) > 0){
                         setPB(positionBottom - deltaVW * (1/3))
+                    } else {
+                        setPB(0)
                     }
                     console.log(positionLeft, 'STAGE 4')
                     console.log(positionBottom)
-                 } else if ( positionLeft + deltaVW > (componentWidth / 1500) * 110
-                 && positionBottom + deltaVH < (componentWidth / 1500) * 150) {
-                    if(positionBottom < 500){
-                        setPB(positionBottom + deltaVW)
+                } else if ( positionLeft > 1000 && positionLeft < 1300){
+                    setPL(positionLeft + deltaVW)
+                    if(positionLeft + deltaVW >= 1300) {
+                        setPB(10)
+                        setPL(1300)
                     }
                     console.log(positionLeft, 'STAGE 5')
-                    console.log(positionBottom)
-                 }
-            }         
+                } else if ( positionLeft >= 1300 ){
+                    setPL(1300)
+                    if(positionBottom + deltaVW <= 500 && positionBottom >= 10){
+                        setPB(positionBottom + deltaVW)
+                    } else if(positionBottom < 10){
+                        setPL(1299)
+                        setPB(0)
+                    } else {
+                        setPB(500)
+                    }
+                    console.log(positionLeft, positionBottom, 'STAGE 6')
+                }
+            }          
     }
 
     return (

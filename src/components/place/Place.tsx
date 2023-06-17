@@ -1,6 +1,6 @@
 import c from './Place.module.scss'
 import Hero from '../hero/Hero';
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { withResizeDetector } from 'react-resize-detector';
 
 
@@ -15,14 +15,35 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
     const componentWidth = width
     const componentHight = height
 
+    // hero view
+    const[side, setSide] = useState<string>('right')
+    const[position, setP] = useState<string>('staying')
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+          setP('staying')
+        }, 2000);
+    
+        return () => {
+          clearInterval(intervalId);
+        };
+      }, []);
+
     const changePlacePosition = (event: React.WheelEvent<HTMLDivElement>) => {
+            // hero
+            if(event.deltaY > 0 && side != 'rigth') {
+                setSide('right')
+            } else {
+                setSide('left')
+            }
+            setP(event.deltaY > 0 ? 'walking_right' : 'walking_left')
+
             const deltaVW = event.deltaY / (componentWidth / 1500)
             const deltaVH = event.deltaY / (componentWidth / 600)
             
             if(positionLeft + deltaVW  > 0) {
                 if(positionLeft + deltaVW < 300){
                     setPL(deltaVW + positionLeft)
-                    console.log(positionLeft, 'STAGE 1')
                 } else if ( positionLeft + deltaVW > 300 && positionLeft < 500 ) {
                     setPL(positionLeft + deltaVW * (2/3))
                     if(positionBottom <= 100){
@@ -30,12 +51,8 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     } else {
                         setPB(100)
                     }
-                    console.log(positionLeft, 'STAGE 2')
-                    console.log(positionBottom)
                 } else if ( positionLeft > 500 && positionLeft < 800) {
                     setPL(positionLeft + deltaVW)
-                    console.log(positionLeft, 'STAGE 3')
-                    // console.log(positionBottom)
                 } else if ( positionLeft > 800 && positionLeft < 1000) {
                     setPL(positionLeft + deltaVW * (2/3))
                     if(positionBottom - deltaVW * (1/3) > 0){
@@ -43,15 +60,12 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     } else {
                         setPB(0)
                     }
-                    console.log(positionLeft, 'STAGE 4')
-                    console.log(positionBottom)
                 } else if ( positionLeft > 1000 && positionLeft < 1300){
                     setPL(positionLeft + deltaVW)
                     if(positionLeft + deltaVW >= 1300) {
                         setPB(10)
                         setPL(1300)
                     }
-                    console.log(positionLeft, 'STAGE 5')
                 } else if ( positionLeft >= 1300 ){
                     setPL(1300)
                     if(positionBottom + deltaVW <= 500 && positionBottom >= 10){
@@ -62,9 +76,8 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     } else {
                         setPB(500)
                     }
-                    console.log(positionLeft, positionBottom, 'STAGE 6')
                 }
-            }          
+            }        
     }
 
     return (
@@ -79,6 +92,8 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
             <Hero 
                 positionLeft={positionLeft}
                 positionBottom={positionBottom}
+                side={side}
+                position={position}
             />
         </div>
     )

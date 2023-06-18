@@ -1,3 +1,21 @@
+@keyframes rotateRight {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(355deg);
+    }
+}
+
+@keyframes rotateLeft {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(-355deg);
+    }
+}
+
 .place{
     height: 600vh;
     width: 1500vw;
@@ -8,4 +26,142 @@
     max-width: 1500vw;
     bottom: 0;
     left: 0;
+}
+
+.hero_container{
+    position: absolute;
+    height: 30vh;
+    width: 50vw;
+    left: calc(50vw - 10vw);
+    left: 25vw;
+}
+
+.car_container{
+    max-width: 465px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    & .car{
+        position: absolute;
+        left: 10%;
+        width: 80%;
+        z-index: 200;
+        bottom: 0;
+    }
+    & .leftWheel_toRight, & .leftWheel_toLeft, & .rightWheel_toRight, & .rightWheel_toLeft{
+        position: absolute;
+        bottom: 0;
+        width: 60px;
+    }
+    & .leftWheel_toRight, & .rightWheel_toRight{
+        animation: rotateRight 1s linear infinite ;
+    }
+    & .leftWheel_toLeft, & .rightWheel_toLeft{
+        animation: rotateLeft 1s linear infinite ;
+    }
+    & .leftWheel_toRight{
+        left: 16%;
+        z-index: 300;
+    }
+    & .rightWheel_toRight{
+        right: 17%;
+        z-index: 300;
+    }
+    & .leftWheel_toLeft{
+        left: 17.5%;
+        z-index: 300;
+    }
+    & .rightWheel_toLeft{
+        right: 15.5%;
+        z-index: 300;
+    }
+}
+
+@media(max-width: 900px){
+    .car_container{
+        width: 435px;
+        & .car{
+            left: calc(15%);
+            width: 70%;
+        }
+        & .leftWheel_toRight{
+            left: 20%;
+            z-index: 300;
+        }
+        & .rightWheel_toRight{
+            right: 21%;
+            z-index: 300;
+        }
+        & .leftWheel_toLeft{
+            left: 21%;
+            z-index: 300;
+        }
+        & .rightWheel_toLeft{
+            right: 20%;
+            z-index: 300;
+        }
+        & .leftWheel_toRight, & .leftWheel_toLeft, & .rightWheel_toRight, & .rightWheel_toLeft{
+            width: 50px;
+        }
+    }
+}
+
+@media(max-width: 676px){
+    .car_container{
+        width: 300px;
+        & .car{
+            left: 15% ;
+            width: 70%;
+        }
+        & .leftWheel_toRight{
+            left: 20%;
+            z-index: 300;
+        }
+        & .rightWheel_toRight{
+            right: 21%;
+            z-index: 300;
+        }
+        & .leftWheel_toLeft{
+            left: 21%;
+            z-index: 300;
+        }
+        & .rightWheel_toLeft{
+            right: 20%;
+            z-index: 300;
+        }
+        & .leftWheel_toRight, & .leftWheel_toLeft, & .rightWheel_toRight, & .rightWheel_toLeft{
+            width: 36px;
+        }
+    }
+}
+
+@media(max-width: 420px){
+    .car_container{
+        width: 250px;
+        & .car{
+            left: calc(20%);
+            width: 60%;
+        }
+        & .leftWheel_toRight{
+            left: 24%;
+            z-index: 300;
+        }
+        & .rightWheel_toRight{
+            right: 25%;
+            z-index: 300;
+        }
+        & .leftWheel_toLeft{
+            left: 25%;
+            z-index: 300;
+        }
+        & .rightWheel_toLeft{
+            right: 24%;
+            z-index: 300;
+        }
+        & .leftWheel_toRight, & .leftWheel_toLeft, & .rightWheel_toRight, & .rightWheel_toLeft{
+            width: 26px;
+        }
+    }
 }

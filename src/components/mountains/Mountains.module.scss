@@ -12,7 +12,85 @@
             height: 80vh;
             width: 100vw;
             clip-path: polygon(0 100%, 55% 0, 100% 100%);
-            background-color: rgb(177, 136, 32);
+            background-color: rgb(38, 99, 10);
+            & .mountain_top{
+                position: absolute;
+                left: 35%;
+                top: 0;
+                width: 30%;
+                height: 30%;
+                background-color: rgb(200, 204, 204);
+                clip-path: polygon(0 80%, 0 0, 100% 0, 100% 80%, 50% 100%);  
+            }
+            z-index: -3;
+        }
+        &:nth-child(2){
+            left: 80vw;
+            bottom: 0;
+            height: 60vh;
+            width: 80vw;
+            clip-path: polygon(0 100%, 55% 0, 100% 100%);
+            background-color: rgb(39, 78, 21);
+            & .mountain_top{
+                position: absolute;
+                left: 35%;
+                top: 0;
+                width: 30%;
+                height: 30%;
+                background-color: rgb(200, 204, 204);
+                clip-path: polygon(0 80%, 0 0, 100% 0, 100% 80%, 50% 100%);  
+            }
+        }
+        &:nth-child(3){
+            left: 40vw;
+            bottom: 0;
+            height: 60vh;
+            width: 100vw;
+            clip-path: polygon(0 100%, 55% 0, 100% 100%);
+            background-color: rgb(33, 70, 15);
+            & .mountain_top{
+                position: absolute;
+                left: 35%;
+                top: 0;
+                width: 30%;
+                height: 30%;
+                background-color: rgb(200, 204, 204);
+                clip-path: polygon(0 80%, 0 0, 100% 0, 100% 80%, 50% 100%);  
+            }
+        }
+        &:nth-child(4){
+            left: 550vw;
+            bottom: 0;
+            height: 40vh;
+            width: 60vw;
+            clip-path: polygon(0 100%, 55% 0, 100% 100%);
+            background-color: rgb(45, 71, 33);
+            & .mountain_top{
+                position: absolute;
+                left: 35%;
+                top: 0;
+                width: 30%;
+                height: 30%;
+                background-color: rgb(200, 204, 204);
+                clip-path: polygon(0 80%, 0 0, 100% 0, 100% 80%, 50% 100%);  
+            }
+        }
+        &:nth-child(5){
+            left: 500vw;
+            bottom: 0;
+            height: 80vh;
+            width: 100vw;
+            clip-path: polygon(0 100%, 55% 0, 100% 100%);
+            background-color: rgb(38, 99, 10);
+            & .mountain_top{
+                position: absolute;
+                left: 35%;
+                top: 0;
+                width: 30%;
+                height: 30%;
+                background-color: rgb(200, 204, 204);
+                clip-path: polygon(0 80%, 0 0, 100% 0, 100% 80%, 50% 100%);  
+            }
         }
     }
 }

@@ -13,18 +13,13 @@ const Mountains: React.FC<Props> = ({positionLeft, startPosition}) => {
                 left: `${mountainPosition}vw`
             }}
         >
-            <div className={c.mountain}>
-                <div className={c.mountain_top}></div>
-            </div>
-            <div className={c.mountain}>
-                <div className={c.mountain_top}></div>
-            </div>
-            <div className={c.mountain}>
-                <div className={c.mountain_top}></div>
-            </div>
-            <div className={c.mountain}>
-                <div className={c.mountain_top}></div>
-            </div>
+            {[1, 2, 3, 4, 5].map((i) => {
+                return (
+                    <div key={i} className={c.mountain}>
+                        <div className={c.mountain_top}></div>
+                    </div>
+                )
+            })}
         </div>
     )
 }

@@ -9,10 +9,10 @@
 
 .clouds{
     position: absolute;
-    left: 350vw;
-    bottom: 100vh;
-    width: 600vw;
-    height: 100vh;
+    left: 0vw;
+    bottom: 50vh;
+    width: 1500vw;
+    height: 150vh;
 }
 
 .cloud{
@@ -21,42 +21,202 @@
     left: -20vw;
     &:nth-child(1){
         top: 20vh;
-        animation: cloud 20s infinite;
+        animation: cloud 40s infinite;
     }
     &:nth-child(2){
         top: 10vh;
-        animation: cloud 20s infinite 2s;
+        animation: cloud 40s infinite 2s;
     }
     &:nth-child(3){
         top: 50vh;
-        animation: cloud 20s infinite 1s;
+        animation: cloud 40s infinite 1s;
     }
     &:nth-child(4){
         top: 80vh;
-        animation: cloud 20s infinite 5s;
+        animation: cloud 40s infinite 5s;
     }
     &:nth-child(5){
         top: 60vh;
-        animation: cloud 20s infinite 4s;
+        animation: cloud 40s infinite 4s;
     }
     &:nth-child(6){
         top: 70vh;
-        animation: cloud 20s infinite 7s;
+        animation: cloud 40s infinite 7s;
     }
     &:nth-child(7){
         top: 100vh;
-        animation: cloud 20s infinite 3s;
+        animation: cloud 40s infinite 3s;
     }
     &:nth-child(8){
         top: 40vh;
-        animation: cloud 20s infinite 9s;
+        animation: cloud 40s infinite 9s;
     }
     &:nth-child(9){
         top: 34vh;
-        animation: cloud 20s infinite 8s;
+        animation: cloud 40s infinite 8s;
     }
     &:nth-child(10){
         top: 81vh;
-        animation: cloud 20s infinite 10s;
+        animation: cloud 40s infinite 10s;
     }
+    &:nth-child(11){
+        top: 20vh;
+        animation: cloud 40s infinite 12s;
+    }
+    &:nth-child(12){
+        top: 10vh;
+        animation: cloud 40s infinite 14s;
+    }
+    &:nth-child(13){
+        top: 50vh;
+        animation: cloud 40s infinite 16s;
+    }
+    &:nth-child(14){
+        top: 80vh;
+        animation: cloud 40s infinite 18s;
+    }
+    &:nth-child(15){
+        top: 60vh;
+        animation: cloud 40s infinite 20s;
+    }
+    &:nth-child(16){
+        top: 70vh;
+        animation: cloud 40s infinite 22s;
+    }
+    &:nth-child(17){
+        top: 100vh;
+        animation: cloud 40s infinite 24s;
+    }
+    &:nth-child(18){
+        top: 40vh;
+        animation: cloud 40s infinite 26s;
+    }
+    &:nth-child(19){
+        top: 34vh;
+        animation: cloud 40s infinite 28s;
+    }
+    &:nth-child(20){
+        top: 81vh;
+        animation: cloud 40s infinite 30s;
+    }
+    &:nth-child(21){
+        top: 10vh;
+        animation: cloud 40s infinite 32;
+    }
+    &:nth-child(22){
+        top: 10vh;
+        animation: cloud 40s infinite 34s;
+    }
+    &:nth-child(23){
+        top: 50vh;
+        animation: cloud 40s infinite 36s;
+    }
+    &:nth-child(24){
+        top: 130vh;
+        animation: cloud 40s infinite 38s;
+    }
+    &:nth-child(25){
+        top: 60vh;
+        animation: cloud 40s infinite 40s;
+    }
+    &:nth-child(26){
+        top: 7vh;
+        animation: cloud 40s infinite 44s;
+    }
+    &:nth-child(27){
+        top: 100vh;
+        animation: cloud 40s infinite 46s;
+    }
+    &:nth-child(28){
+        top: 40vh;
+        animation: cloud 40s infinite 1s;
+    }
+    &:nth-child(29){
+        top: 34vh;
+        animation: cloud 40s infinite 3s;
+    }
+    &:nth-child(30){
+        top: 1vh;
+        animation: cloud 40s infinite 7s;
+    }
+    &:nth-child(31){
+        top: 20vh;
+        animation: cloud 40s infinite 5s;
+    }
+    &:nth-child(32){
+        top: 110vh;
+        animation: cloud 40s infinite 9s;
+    }
+    &:nth-child(33){
+        top: 50vh;
+        animation: cloud 40s infinite 11s;
+    }
+    &:nth-child(34){
+        top: 8vh;
+        animation: cloud 40s infinite 13s;
+    }
+    &:nth-child(35){
+        top: 60vh;
+        animation: cloud 40s infinite 15s;
+    }
+    &:nth-child(36){
+        top: 120vh;
+        animation: cloud 40s infinite 17s;
+    }
+    &:nth-child(37){
+        top: 130vh;
+        animation: cloud 40s infinite 19s;
+    }
+    &:nth-child(38){
+        top: 40vh;
+        animation: cloud 40s infinite 21s;
+    }
+    &:nth-child(39){
+        top: 4vh;
+        animation: cloud 40s infinite 23s;
+    }
+    &:nth-child(40){
+        top: 81vh;
+        animation: cloud 40s infinite 25s;
+    }
+    &:nth-child(41){
+        top: 20vh;
+        animation: cloud 40s infinite 27s;
+    }
+    &:nth-child(42){
+        top: 10vh;
+        animation: cloud 40s infinite 29s;
+    }
+    &:nth-child(43){
+        top: 120vh;
+        animation: cloud 40s infinite 31s;
+    }
+    &:nth-child(44){
+        top: 8vh;
+        animation: cloud 40s infinite 33s;
+    }
+    &:nth-child(45){
+        top: 60vh;
+        animation: cloud 40s infinite 5s;
+    }
+    &:nth-child(46){
+        top: 70vh;
+        animation: cloud 40s infinite 31s;
+    }
+    &:nth-child(47){
+        top: 40vh;
+        animation: cloud 40s infinite 33s;
+    }
+    &:nth-child(48){
+        top: 6vh;
+        animation: cloud 40s infinite 35s;
+    }
+    &:nth-child(49){
+        top: 4vh;
+        animation: cloud 40s infinite 37s;
+    }
+    &:nth-child(50){
+        top: 1vh;
+        animation: cloud 40s infinite 39s;
+    }  
 }

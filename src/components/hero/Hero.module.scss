@@ -110,17 +110,29 @@
     background-color: white;
     border-bottom: 20px solid rgb(30, 21, 132);
     overflow: visible;
+    scale: 0.8;
+    z-index: 100;
+    transform: translateY(0vh);
 }
 
 @media(max-width: 900px){
     .hero{
         scale: 0.7;
+        transform: translateY(2vh);
     }
 }
 
 @media(max-width: 676px){
     .hero{
         scale: 0.5;
+        transform: translateY(7vh);
+    }
+}
+
+@media(max-width: 420px){
+    .hero{
+        scale: 0.4;
+        transform: translateY(6vh);
     }
 }
 

@@ -1,0 +1,98 @@
+.stars{
+    position: absolute;
+    top: 200vh;
+    right: 100vw;
+    height: 1px;
+    width: 1px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: -24vw -44vh 2px 2px #fff,
+                38vw -4vh 0px 0px #fff,
+                -20vw -48vh 1px 2px #fff,
+                -39vw 38vh 3px 1px #fff,
+                -42vw -11vh 0px 3px #fff,
+                12vw 15vh 3px 3px #fff,
+                42vw 6vh 3px 2px #fff,
+                -8vw 9vh 0px 2px #fff,
+                34vw -38vh 1px 0px #fff,
+                -17vw 45vh 3px 1px #fff,
+                22vw -36vh 3px 2px #fff,
+                -42vw 1vh 1px 0px #fff,
+
+                -34vw -24vh 2px 2px #fff,
+                31vw -42vh 0px 0px #fff,
+                -8vw -4vh 1px 2px #fff,
+                -39vw 3vh 3px 1px #fff,
+                -23vw -14vh 0px 3px #fff,
+                14vw 19vh 3px 3px #fff,
+                42vw 19vh 3px 2px #fff,
+                -28vw 14vh 0px 2px #fff,
+                30vw -28vh 1px 0px #fff,
+                -17vw 5vh 3px 1px #fff,
+                20vw -36vh 3px 2px #fff,
+                -4vw 1vh 1px 0px #fff,
+
+                -54vw -46vh 2px 2px #fff,
+                63vw -42vh 0px 0px #fff,
+                -70vw -28vh 1px 2px #fff,
+                -89vw 3vh 3px 1px #fff,
+                -92vw -11vh 0px 3px #fff,
+                95vw 25vh 3px 3px #fff,
+                84vw 12vh 3px 2px #fff,
+                -75vw 13vh 0px 2px #fff,
+                64vw -8vh 1px 0px #fff,
+                -57vw 5vh 3px 1px #fff,
+                66vw -46vh 3px 2px #fff,
+                -72vw 11vh 1px 0px #fff,
+                
+                -84vw -54vh 2px 2px #fff,
+                98vw -64vh 0px 0px #fff,
+                -80vw -58vh 1px 2px #fff,
+                -79vw 68vh 3px 1px #fff,
+                -62vw -51vh 0px 3px #fff,
+                56vw 55vh 3px 3px #fff,
+                65vw 63vh 3px 2px #fff,
+                -76vw 73vh 0px 2px #fff,
+                65vw -58vh 1px 0px #fff,
+                -76vw 55vh 3px 1px #fff,
+                57vw -66vh 3px 2px #fff,
+                -95vw 61vh 1px 0px #fff,
+
+                -134vw -54vh 2px 2px #fff,
+                131vw -62vh 0px 0px #fff,
+                -118vw -74vh 1px 2px #fff,
+                -119vw 63vh 3px 1px #fff,
+                -123vw -64vh 0px 3px #fff,
+                124vw 69vh 3px 3px #fff,
+                132vw 59vh 3px 2px #fff,
+                -148vw 64vh 0px 2px #fff,
+                143vw -68vh 1px 0px #fff,
+                -145vw 55vh 3px 1px #fff,
+                130vw -56vh 3px 2px #fff,
+                -124vw 71vh 1px 0px #fff,
+
+                -114vw -66vh 2px 2px #fff,
+                128vw -52vh 0px 0px #fff,
+                -120vw -68vh 1px 2px #fff,
+                -139vw 53vh 3px 1px #fff,
+                -132vw -61vh 0px 3px #fff,
+                115vw 55vh 3px 3px #fff,
+                140vw 62vh 3px 2px #fff,
+                -135vw 53vh 0px 2px #fff,
+                134vw -58vh 1px 0px #fff,
+                -127vw 65vh 3px 1px #fff,
+                136vw -72vh 3px 2px #fff,
+                -142vw 61vh 1px 0px #fff;
+    &:nth-child(2){
+        transform: rotate(40deg);
+    }
+    &:nth-child(3){
+        transform: rotate(-30deg);
+    }
+    &:nth-child(4){
+        transform: rotate(90deg);
+    }
+    &:nth-child(5){
+        transform: rotate(-20deg);
+    }
+}

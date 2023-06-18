@@ -2,6 +2,12 @@ import c from './Place.module.scss'
 import Hero from '../hero/Hero';
 import { useState, useEffect } from 'react';
 import { withResizeDetector } from 'react-resize-detector';
+import Clouds from '../clouds/Clouds';
+import Road from '../road/Road';
+import Home from '../home/Home';
+import Stars from '../stars/Stars';
+import Form from '../form/Form';
+import Mountains from '../mountains/Mountains';
 
 
 interface MyComponentProps {
@@ -18,6 +24,7 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
     // hero view
     const[side, setSide] = useState<string>('right')
     const[position, setP] = useState<string>('staying')
+    const[hero, setHero] = useState<string>('taras') 
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -44,6 +51,7 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
             if(positionLeft + deltaVW  > 0) {
                 if(positionLeft + deltaVW < 300){
                     setPL(deltaVW + positionLeft)
+                    setPB(0)
                 } else if ( positionLeft + deltaVW > 300 && positionLeft < 500 ) {
                     setPL(positionLeft + deltaVW * (2/3))
                     if(positionBottom <= 100){
@@ -62,6 +70,7 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     }
                 } else if ( positionLeft > 1000 && positionLeft < 1300){
                     setPL(positionLeft + deltaVW)
+                    setPB(0)
                     if(positionLeft + deltaVW >= 1300) {
                         setPB(10)
                         setPL(1300)
@@ -89,12 +98,24 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                 bottom: `${-positionBottom}vh`
             }}
         >
-            <Hero 
-                positionLeft={positionLeft}
-                positionBottom={positionBottom}
-                side={side}
-                position={position}
-            />
+            <div className={c.hero_container}>
+                {hero === 'taras' ? 
+                <Hero 
+                    positionLeft={positionLeft}
+                    positionBottom={positionBottom}
+                    side={side}
+                    position={position}
+                />
+                :
+                <div></div>
+                }
+            </div>
+            <Clouds />
+            <Road/>
+            <Home/>
+            <Stars />
+            <Form />
+            <Mountains startPosition={0} positionLeft={positionLeft} />
         </div>
     )
 }

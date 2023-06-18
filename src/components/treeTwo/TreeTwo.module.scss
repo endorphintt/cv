@@ -1,8 +1,27 @@
-.road{
+.treeTwo{
+    width: 20vw;
+    height: 25vw;
     position: absolute;
+    box-shadow: 0;
+    left: 7vw;
+    bottom: 10vh;
+    z-index: 3;
+}
+
+.branch{
+    background-color: rgb(193, 130, 41);
+    width: 4vw;
+    height: 30%;
+    position: absolute;
+    left: calc(50% - 2vw);
     bottom: 0;
-    left: 0;
-    width: 1600vw;
-    height: 10vh;
-    background: url(../../../public/img/road.png) 0 0/ 5vh 5vh;
+    z-index: -1;
+}
+
+.leaf{
+    width: 100%;
+    background-color: rgb(49, 141, 49);
+    height: 80%;
+    border-top-left-radius:  15vh;
+    border-top-right-radius:  15vh;
 }

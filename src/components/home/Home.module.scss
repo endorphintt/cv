@@ -9,8 +9,9 @@
 .mushroomOne{
     position: absolute;
     bottom: 10vh;
-    left: 15vw;
+    right: 15vw;
     width: 6vw;
+    z-index: 10;
 }
 
 .treeOne_container{
@@ -20,4 +21,18 @@
     height: 60vh;
     width: 15vw;
     overflow: hidden;
+}
+
+.column{
+    position: absolute;
+    bottom: 10vh;
+    right: 5vh;
+    width: 15vw;
+}
+
+.question{
+    position: absolute;
+    bottom: 30vh;
+    right: 40vh;
+    width: 10vh;
 }

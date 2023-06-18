@@ -9,6 +9,10 @@ import Stars from '../stars/Stars';
 import Form from '../form/Form';
 import Mountains from '../mountains/Mountains';
 import Location from '../location/Location';
+import Car from '../car/Car';
+import Plane from '../plane/Plane';
+import Skills from '../skills/Skills';
+import Board from '../board/Board';
 
 
 interface MyComponentProps {
@@ -125,20 +129,10 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                 />
                 :
                 hero === 'car' ? 
-                <div className={c.car_container}>
-                    <Hero 
-                        hero={hero}
-                        side={side}
-                        position={'staying'}
-                    />
-                    <img 
-                        className={c.car}
-                        style={{transform: `rotateY(${side === 'right' ? '0deg' : '180deg'} )`}}
-                        src="./img/car.png" alt="car" 
-                    />
-                    <img className={side === 'right' ? c.leftWheel_toRight : c.leftWheel_toLeft} src="./img/wheel.png" alt="wheel" />
-                    <img className={side === 'right' ? c.rightWheel_toRight : c.rightWheel_toLeft} src="./img/wheel.png" alt="wheel" />
-                </div>
+                <Car hero={hero} side={side} />
+                :
+                hero === 'plane' ?
+                <Plane side={side} />
                 :
                 <div></div>
                 }
@@ -150,6 +144,51 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
             <Form />
             <Mountains startPosition={0} positionLeft={positionLeft} />
             <Location />
+            <Skills />
+            <div className={c.board_first}>
+                <Board
+                    positionLeft={positionLeft}
+                    width={80}
+                    height={40} 
+                    color='transparent' 
+                    tablePosition={210}
+                    title='Frondtend 1/2' 
+                    technologies={[{title: 'js', rating: [1, 1, 1, 1, 0]}, {title: 'ts', rating: [1, 1, 1, 1, 0]}, {title: 'react', rating: [1, 1, 1, 1, 1]}, {title: 'redux', rating: [1, 1, 1, 1, 0]}, {title: 'mobX', rating: [1, 1, 1, 0, 0]}]}
+                />
+            </div>
+            <div className={c.board_second}>
+                <Board
+                    positionLeft={positionLeft}
+                    width={80}
+                    height={40} 
+                    color='transparent'  
+                    tablePosition={310}
+                    title='frontend 1/2' 
+                    technologies={[{title: 'html', rating: [1, 1, 1, 1, 1]}, {title: 'css', rating: [1, 1, 1, 1, 1]}, {title: 'Antd, BS', rating: [1, 1, 1, 0, 0]}, {title: 'Toolkit', rating: [1, 1, 1, 0, 0]}, {title: 'scss/sass', rating: [1, 1, 1, 1, 1]}]}
+                />
+            </div>
+            <div className={c.board_third}>
+                <Board
+                    positionLeft={positionLeft}
+                    width={80}
+                    height={40} 
+                    color='transparent'  
+                    tablePosition={410}
+                    title='backend' 
+                    technologies={[{title: 'node.js', rating: [1, 1, 1, 1, 0]}, {title: 'express', rating: [1, 1, 1, 0, 0]}, {title: 'MongoDB', rating: [1, 1, 1, 1, 1]}, {title: 'SQL', rating: [1, 1, 0, 0, 0]}]}
+                />
+            </div>
+            <div className={c.board_fourth}>
+                <Board
+                    positionLeft={positionLeft}
+                    width={80}
+                    height={40} 
+                    color='transparent' 
+                    tablePosition={510}
+                    title='Languages' 
+                    technologies={[{title: 'English', rating: [1, 1, 1, 1, 0]}, {title: 'Polish', rating: [1, 1, 1, 1, 0]}, {title: 'Ukrainian', rating: [1, 1, 1, 1, 1]}, {title: 'Russian', rating: [1, 1, 1, 1, 1]}]}
+                />
+            </div>
         </div>
     )
 }

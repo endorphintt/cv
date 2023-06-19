@@ -38,7 +38,7 @@
 
 //boards
 .board_{
-    &second, &first, &third, &fourth {
+    &second, &first, &third, &fourth, &fifth, &sixth{
         position: absolute;
         width: 100vw;
         height: 100vh;
@@ -62,4 +62,42 @@
         left: 600vw;
         bottom: 100vh;
     }
+    &fifth{
+        left: 800vw;
+        bottom: 100vh;
+    }
+    &sixth{
+        left: 900vw;
+        bottom: 50vh;
+    }
+}
+
+.hero_rocket{
+    position: absolute;
+    bottom: 10vh;
+    width: 20vw;
+}
+
+.rocket{
+    position: absolute;
+    bottom: 10vh;
+    left: 1350vw;
+    width: 40vw;
+}
+
+.crane{
+    position: absolute;
+    bottom: 10vh;
+    left: 1280vw;
+    width: 100vw;
+}
+
+.stand{
+    position: absolute;
+    left: 1340vw;
+    bottom: 10vh;
+    width: 60vw;
+    height: 12vw;
+    clip-path: polygon(0 12vw, 0 8vw, 4vw 8vw, 4vw 4vw, 8vw 4vw, 8vw 0, 100% 0, 100% 100%) ;
+    background: url('../../../public/img/brick.png') 0 0/ 3vw 3vw repeat;
 }

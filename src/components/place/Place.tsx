@@ -8,11 +8,16 @@ import Home from '../home/Home';
 import Stars from '../stars/Stars';
 import Form from '../form/Form';
 import Mountains from '../mountains/Mountains';
-import Location from '../location/Location';
+import Location from '../house/Location';
 import Car from '../car/Car';
 import Plane from '../plane/Plane';
 import Skills from '../skills/Skills';
 import Board from '../board/Board';
+import Billboard from '../billboard/Billboard';
+import TreeOne from '../treeOne/TreeOne';
+import TreeTwo from '../treeTwo/TreeTwo';
+import TreeThree from '../treeThree/TreeThree';
+import Education from '../education/Education';
 
 
 interface MyComponentProps {
@@ -60,7 +65,7 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                 setHero('plane')
             } else if(positionLeft + deltaVW > 1000 && positionLeft + deltaVW < 1300 ) {
                 setHero('taras')
-            } else if(positionLeft + deltaVW > 300 && positionLeft + deltaVW < 1000 ) {
+            } else if(positionLeft + deltaVW > 1300 && positionLeft + deltaVW < 1550 ) {
                 setHero('rocket')
             } 
             //
@@ -134,6 +139,9 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                 hero === 'plane' ?
                 <Plane side={side} />
                 :
+                hero === 'rocket' ?
+                <img className={c.hero_rocket} src='./img/rocket.png' />
+                : 
                 <div></div>
                 }
             </div>
@@ -144,13 +152,13 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
             <Form />
             <Mountains startPosition={0} positionLeft={positionLeft} />
             <Location />
-            <Skills />
+            <Skills left={200} bottom={0} text='SKILLS'/>
             <div className={c.board_first}>
                 <Board
                     positionLeft={positionLeft}
                     width={80}
                     height={40} 
-                    color='transparent' 
+                    color='#D37E24' 
                     tablePosition={210}
                     title='Frondtend 1/2' 
                     technologies={[{title: 'js', rating: [1, 1, 1, 1, 0]}, {title: 'ts', rating: [1, 1, 1, 1, 0]}, {title: 'react', rating: [1, 1, 1, 1, 1]}, {title: 'redux', rating: [1, 1, 1, 1, 0]}, {title: 'mobX', rating: [1, 1, 1, 0, 0]}]}
@@ -161,9 +169,9 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     positionLeft={positionLeft}
                     width={80}
                     height={40} 
-                    color='transparent'  
+                    color='#D34C24'  
                     tablePosition={310}
-                    title='frontend 1/2' 
+                    title='frontend 2/2' 
                     technologies={[{title: 'html', rating: [1, 1, 1, 1, 1]}, {title: 'css', rating: [1, 1, 1, 1, 1]}, {title: 'Antd, BS', rating: [1, 1, 1, 0, 0]}, {title: 'Toolkit', rating: [1, 1, 1, 0, 0]}, {title: 'scss/sass', rating: [1, 1, 1, 1, 1]}]}
                 />
             </div>
@@ -172,7 +180,7 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     positionLeft={positionLeft}
                     width={80}
                     height={40} 
-                    color='transparent'  
+                    color='#C98875'  
                     tablePosition={410}
                     title='backend' 
                     technologies={[{title: 'node.js', rating: [1, 1, 1, 1, 0]}, {title: 'express', rating: [1, 1, 1, 0, 0]}, {title: 'MongoDB', rating: [1, 1, 1, 1, 1]}, {title: 'SQL', rating: [1, 1, 0, 0, 0]}]}
@@ -183,12 +191,41 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     positionLeft={positionLeft}
                     width={80}
                     height={40} 
-                    color='transparent' 
+                    color='#7C1B1A'
                     tablePosition={510}
                     title='Languages' 
                     technologies={[{title: 'English', rating: [1, 1, 1, 1, 0]}, {title: 'Polish', rating: [1, 1, 1, 1, 0]}, {title: 'Ukrainian', rating: [1, 1, 1, 1, 1]}, {title: 'Russian', rating: [1, 1, 1, 1, 1]}]}
                 />
             </div>
+            <Skills left={700} bottom={100} text='EXPERIENCE'/>
+            <div className={c.board_fifth}>
+                <Billboard
+                    positionLeft={positionLeft}
+                    tablePosition={710}
+                    dates='Feb 2023 - June 2023'
+                    title='Junior Front-end React' 
+                    company='Atlantis & Co.'
+                    points={['Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.']}
+                />
+            </div>
+            <div className={c.board_sixth}>
+                <Billboard
+                    positionLeft={positionLeft}
+                    tablePosition={810}
+                    dates='Feb 2023 - June 2023'
+                    title='Junior Front-end React' 
+                    company='Atlantis & Co.'
+                    points={['Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.']}
+                />
+            </div>
+            <Skills left={1000} bottom={0} text='EDUCATION'/>
+            <TreeOne left={997}/>
+            <TreeTwo left={1003}/>
+            <TreeThree left={1015}/>
+            <Education/>
+            <img style={{display: `${positionLeft > 1299 ? 'none' : 'block'}`}} className={c.rocket} src='./img/rocket.png' />
+            <div className={c.stand}></div>
+            <img style={{display: `${positionLeft > 1299 ? 'none' : 'block'}`}} className={c.crane} src='./img/crane.png' />
         </div>
     )
 }

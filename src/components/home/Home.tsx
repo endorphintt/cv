@@ -9,9 +9,9 @@ const Home: React.FC = () => {
         <div className={c.home}>
             <Title />
             <img className={c.mushroomOne} src='./img/mushroomOne.png'></img>
-            <TreeOne />
-            <TreeTwo />
-            <TreeThree />
+            <TreeOne left={-3}/>
+            <TreeTwo left={7}/>
+            <TreeThree left={15}/>
             <img className={c.column} src="./img/column.png" alt="column" />
             <img className={c.question} src="./img/question.png" alt="question" />
         </div>

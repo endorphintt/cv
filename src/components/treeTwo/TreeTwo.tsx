@@ -1,8 +1,12 @@
 import c from './TreeTwo.module.scss'
 
-const TreeTwo: React.FC = () => {
+type Left = {
+    left: number;
+}
+
+const TreeTwo: React.FC<Left> = ({left}) => {
     return (
-        <div className={c.treeTwo}>
+        <div style={{left: `${left}vw`}}  className={c.treeTwo}>
             <div className={c.leaf}></div>
             <div className={c.branch}></div>
         </div>

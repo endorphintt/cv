@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .location{
     position: absolute;
     bottom: 0;
@@ -45,20 +47,6 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        & .door_top{
-            width: 10vw;
-            height: 10vw;
-            background-color: black;
-            border-radius: 50%; 
-            position: absolute;
-            left: calc(50% - 5vw);
-            bottom: 10vw;
-        }
-        & .door_bottom{
-            width: 10vw;
-            height: 15vw;
-            background-color: black;
-        }
         & .window{
             width: 15%;
         }
@@ -85,4 +73,34 @@
     width: 20%;
     height: 40%;
     background-color: black;
+}
+
+.flag{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    bottom: 86%;
+    left: 50%;
+    height: 10vw;
+    & .branch{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: black;
+    }
+    & .flag{
+        background-color: red;
+        position: absolute;
+        left: 3px;
+        top: 0px;
+        height: 5vw;
+        width: 20vw;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 4px;
+        align-items: center;
+        font-size: 1.5vw;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
 }

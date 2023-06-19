@@ -1,8 +1,12 @@
 import c from './TreeOne.module.scss'
 
-const TreeOne: React.FC = () => {
+type Left = {
+    left: number;
+}
+
+const TreeOne: React.FC<Left> = ({left}) => {
     return (
-        <div className={c.treeOne}>
+        <div style={{left: `${left}vw`}}  className={c.treeOne}>
             <div className={c.leaf}></div>
             <div className={c.branch}></div>
         </div>

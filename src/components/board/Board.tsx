@@ -15,7 +15,7 @@ const Board: React.FC<Props> = ({width, height, color, title, technologies, posi
         <div style={{display: `${positionLeft > tablePosition ? 'block' : 'none'}`, backgroundColor: `${color}`}} className={c.board}>
             <div className={c.board_title}>{title}</div>
             <div className={c.rating}>
-                {['rating', 'beginner', 'elementary', 'intermeadiate', 'advanced', 'expert'].map((i) => {
+                {['rating', 'beginner', 'elementary', 'intermeadiate', 'upper int.', 'advanced'].map((i) => {
                     return (
                         <div key={i} className={c.rating__item} >{i}</div>
                     )

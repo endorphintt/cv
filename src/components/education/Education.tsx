@@ -7,15 +7,15 @@ const Education = () => {
             <School
                 name={'Uniwersity of Wroclaw'}
                 title={'Computer Science'}
-                dates={'2021 - not graduated'}
-                position={'Balchelor'}
+                position={`Balchelor`}
+                span="(not graduated)"
                 left={5}
             />
             <School
-                name={'Uniwersity of Wroclaw'}
-                title={'Computer Science'}
-                dates={'2021 - not graduated'}
-                position={'Balchelor'}
+                name={'Foxminded'}
+                title={'Frontend React'}
+                position={'Junior'}
+                span=""
                 left={55}
             />
         </div>

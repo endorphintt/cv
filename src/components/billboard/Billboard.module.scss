@@ -57,9 +57,10 @@
     height: 70%;
     &__item{
         position: relative;
-        padding-left: 4%;
-        margin-right: 2%;
-        width: 95%;
+        padding-left: 5%;
+        margin-right: 3%;
+        width: 92%;
+        margin: 0 2% 0 2%;
         &::before{
             position: absolute;
             content: '';

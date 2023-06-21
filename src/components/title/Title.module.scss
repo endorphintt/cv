@@ -28,10 +28,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    bottom: 45vh;
+    bottom: 35vh;
     left: 20vw;
     width: 60vw;
-    height: 30vw;
+    height: 25vw;
+    max-height: 400px;
     font-family: 'Press Start 2P', cursive;
     font-size: 36px;
     color: #888;
@@ -60,9 +61,10 @@
 }
 
 .title{
+    margin-top: 0;
     text-align: center;
     font-size: 5vw;
-    margin-bottom: 50px;
+    margin-bottom: 5px;
 }
 
 .subtitle{

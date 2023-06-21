@@ -18,6 +18,7 @@ import TreeOne from '../treeOne/TreeOne';
 import TreeTwo from '../treeTwo/TreeTwo';
 import TreeThree from '../treeThree/TreeThree';
 import Education from '../education/Education';
+import Project from '../project/Project';
 
 
 interface MyComponentProps {
@@ -50,6 +51,8 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
             const deltaVW = event.deltaY / (componentWidth / 1500)
             const deltaVH = event.deltaY / (componentWidth / 600)
 
+            console.log(positionLeft, deltaVW)
+
             // hero
             if(event.deltaY > 0 && side != 'rigth') {
                 setSide('right')
@@ -61,13 +64,15 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                 setHero('taras')
             } else if(positionLeft + deltaVW > 110 && positionLeft + deltaVW < 300 ) {
                 setHero('car')
+            } else if(positionLeft === 1300 && deltaVW < 0) {
+                setHero('rocket')    
             } else if(positionLeft + deltaVW > 300 && positionLeft + deltaVW < 1000 ) {
                 setHero('plane')
             } else if(positionLeft + deltaVW > 1000 && positionLeft + deltaVW < 1300 ) {
                 setHero('taras')
-            } else if(positionLeft + deltaVW > 1300 && positionLeft + deltaVW < 1550 ) {
+            }  else if(positionLeft + deltaVW > 1300 && positionLeft + deltaVW < 1550) {
                 setHero('rocket')
-            } 
+            }
             //
             
             if(positionLeft + deltaVW  > 0) {
@@ -205,17 +210,17 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     dates='Feb 2023 - June 2023'
                     title='Junior Front-end React' 
                     company='Atlantis & Co.'
-                    points={['Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.']}
+                    points={['Main stack: React + Redux + Typescript', 'Other technologies: Bootstrap, SCSS/CSS, HTML, JavaScript, node.js, Express.', 'Standardized all output with a new, responsive, mobile-first approach and strategy.']}
                 />
             </div>
             <div className={c.board_sixth}>
                 <Billboard
                     positionLeft={positionLeft}
                     tablePosition={810}
-                    dates='Feb 2023 - June 2023'
-                    title='Junior Front-end React' 
-                    company='Atlantis & Co.'
-                    points={['Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.', 'Виберіть об"єкт, який представляє картинку з ефектом вплуснення.']}
+                    dates='June 2022 - Feb 2023'
+                    title='Web developer' 
+                    company='Freelance'
+                    points={['Frontend + Backend development (website) for law company (React, Redux, Toolkit, SCSS,  TS, JS, Kit). ', 'Frontend + Backend development for  fuel production company (React, Redux, Bootstrap, SCSS, TS, JS) ', 'Frontend development - CVwebsite (React, MobX, Antd, SCSS, TS, JS',]}
                 />
             </div>
             <Skills left={1000} bottom={0} text='EDUCATION'/>
@@ -226,6 +231,17 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
             <img style={{display: `${positionLeft > 1299 ? 'none' : 'block'}`}} className={c.rocket} src='./img/rocket.png' />
             <div className={c.stand}></div>
             <img style={{display: `${positionLeft > 1299 ? 'none' : 'block'}`}} className={c.crane} src='./img/crane.png' />
+            <Skills left={1300} bottom={100} text='own projects'/>
+            <Project bottom={220} color='red' border_bottom='#3f0d03' title='program for managing employees' description='React.ts + Redux + Antd + node.js'/>
+            <Project bottom={270} color='blue' border_bottom='#45fff8' title='furniture store' description='React.js+ Mobx  + node.js'/>
+            <Project bottom={320} color='#450b48' border_bottom='#b31360' title='weather program' description='JQuery + Bootstrap'/>
+            <Project bottom={370} color='#4e345e' border_bottom='#783e66' title='website for law company' description='React.js+ Redux + node.js'/>
+            <Project bottom={420} color='#b7547e' border_bottom='#f1798e' title='program for managing employees' description='React.ts + node.js'/>
+            <TreeOne left={1197}/>
+            <TreeTwo left={1203}/>
+            <TreeThree left={1215}/>
+            <img className={c.poligon} src="./img/polygon.png" alt="poligon" />
+            <img className={c.mush_12} src="./img/mushroomOne.png" alt="mushroom" />
         </div>
     )
 }

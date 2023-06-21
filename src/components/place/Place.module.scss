@@ -76,6 +76,7 @@
     position: absolute;
     bottom: 10vh;
     width: 20vw;
+    z-index: 10000;
 }
 
 .rocket{
@@ -100,4 +101,18 @@
     height: 12vw;
     clip-path: polygon(0 12vw, 0 8vw, 4vw 8vw, 4vw 4vw, 8vw 4vw, 8vw 0, 100% 0, 100% 100%) ;
     background: url('../../../public/img/brick.png') 0 0/ 3vw 3vw repeat;
+}
+
+.poligon{
+    position: absolute;
+    bottom: 50vh;
+    width: 30vw;
+    left: 1260vw;
+}
+
+.mush_12{
+    position: absolute;
+    bottom: 10vh;
+    width: 10vh;
+    left: 1250vw;
 }

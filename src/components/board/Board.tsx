@@ -10,6 +10,8 @@ type Props = {
     technologies: { title: string, rating: number[] }[];
 }
 
+let a = 0
+
 const Board: React.FC<Props> = ({width, height, color, title, technologies, positionLeft, tablePosition}) => {
     return (
         <div style={{display: `${positionLeft > tablePosition ? 'block' : 'none'}`, backgroundColor: `${color}`}} className={c.board}>
@@ -24,13 +26,14 @@ const Board: React.FC<Props> = ({width, height, color, title, technologies, posi
             <div className={c.technologies}>
                 {technologies.map((i) => {
                     return (
-                        <div className={c.technologies__item}>
+                        <div className={c.technologies__item} key={i.title}>
                             <div className={c.tecnologies__title}>{i.title}</div>
                             <div className={c.technologies_rating}>
                                 {i.rating.map((r) => {
+                                    a++
                                     return(
                                         <div className={c.mario}>
-                                            {r === 1 ? <img className={c.mush} src="./img/mush.png" alt="mushroom" /> : <span></span>}
+                                            {r === 1 ? <img key={a} className={c.mush} src="./img/mush.png" alt="mushroom" /> : <span key={a}></span>}
                                         </div>
                                     )
                                 })

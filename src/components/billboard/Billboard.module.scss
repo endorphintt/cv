@@ -75,9 +75,15 @@
 }
 
 @media(max-width: 766px){
+    .board_title{
+        font-size: 16px;
+    }
     .board{
         width: 90%;
         font-size: 2vw;
+    }
+    .points__item{
+        font-size: 14px;
     }
 }
 

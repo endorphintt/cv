@@ -5,7 +5,7 @@ const Education = () => {
     return (
         <div className={c.education}>
             <School
-                name={'Uniwersity of Wroclaw'}
+                name={'University of Wroclaw'}
                 title={'Computer Science'}
                 position={`Balchelor`}
                 span="(not graduated)"

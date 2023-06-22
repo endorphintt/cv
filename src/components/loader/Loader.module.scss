@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@keyframes goindRigth_rigthLeg {
+    0%{
+        right: 0;
+    }
+    50%{
+        top: 100%;
+        right: 0;
+        transform: rotate(-90deg);
+        transform-origin: 100% 0; 
+    }
+    100%{
+        right: 0;
+    }
+}
+
+@keyframes goindRigth_leftLeg {
+    0%{
+    }
+    50%{
+        top: 15px;
+        right: 35px;
+        transform: rotate(-90deg);
+        transform-origin: 100% 0; 
+    }
+    100%{
+    }
+}
+
+@keyframes goingRight_leftHand {
+    0%{
+
+    }
+    50%{
+        transform: rotate(45deg) translate(-15px, 0px);
+    }
+    100%{
+
+    }
+}
+
+@keyframes goingRight_rightHand {
+    0%{
+        transform: rotateY(180deg) rotate(65deg) translate(0px,0px);
+    }
+    50%{
+        transform: rotateY(180deg) rotate(120deg) translate(-10px,20px);
+    }
+    100%{
+        transform: rotateY(180deg) rotate(65deg) translate(0px,0px);
+    }
+}
+
+.loader{
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(155, 189, 218);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero{
+    height: 70px;
+    width: 50px;
+    display: flex;
+    background-color: white;
+    border-bottom: 20px solid rgb(30, 21, 132);
+    overflow: visible;
+    scale: 1.5;
+    z-index: 100;
+    transform: translateY(0vh);
+    bottom: 35px;
+    left: calc(50% - 25px);
+}
+
+.leg_{
+    &right, &left{
+        position: absolute;
+        top: 90px;
+        height: 30px;
+        width: 20px;
+        background-color:  rgb(30, 21, 132);
+    }
+    &right{
+        right: 0;
+        & .foot{
+            left: 0;
+        }
+        & .foot{
+            width: 30px;
+            height: 15px;
+            background-color: white;
+            position: absolute;
+            top: 100%;
+        }
+        animation: goindRigth_rigthLeg 0.5s steps(1, end) infinite;
+    }
+    &left{
+        left: 0;
+        & .foot{
+            width: 30px;
+            height: 15px;
+            background-color: white;
+            position: absolute;
+            top: 100%;
+            right: 0px;
+        }
+        & .foot{
+            animation: goindRigth_leftLeg 0.5s steps(1, end) infinite;
+        }
+    }
+}
+
+//head for each side
+.head_right{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    bottom: 65px;
+    background-color: bisque;
+    border-radius: 50%;
+    left: -15px;
+    box-sizing: border-box;
+    &::after{
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 30px;
+        left: 0;
+        top: 0;
+        background-color: black;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+    &::before{
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 30px;
+        top: 20px;
+        background-color: black;
+    }
+    & .eyes{
+        width: 60px;
+        height: 25px;
+        position: absolute;
+        top: 37px;
+        & .eye{
+            position: absolute;
+            height: 0;
+            width: 23px;
+            height: 23px;
+            background-color: white;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: 2px solid rgb(182, 100, 100);
+            &:first-child{
+                &::before{
+                    position: absolute;
+                    content: '';
+                    width: 4px;
+                    height: 4px;
+                    background-color: black;
+                    left: calc(50% - 2px);
+                    top: calc(50% - 2px);
+                    border-radius: 50%;
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    width: 8px;
+                    background-color: rgb(182, 100, 100);
+                    left: 100%;
+                    top: calc(50% - 1px);
+                }
+            }
+            &:nth-child(2){
+                &::after{
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    width: 30px;
+                    background-color: rgb(182, 100, 100);
+                }
+                &::before{
+                    position: absolute;
+                    content: '';
+                    width: 4px;
+                    height: 4px;
+                    background-color: black;
+                    left: calc(50% - 2px);
+                    top: calc(50% - 2px);
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+      
+    & .ear{
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 0.5px solid rgb(158, 153, 153);
+        background-color: bisque;
+        top: 50%;
+        z-index: 3;
+    }
+    
+    & .lips{
+        position: absolute;
+        top: 80%;
+        width: 30px;
+        height: 1px;
+        background-color: red;
+        border: 3px solid rgb(237, 154, 154);
+        border-radius: 3px;
+    }
+}
+
+.head_right{
+    &::before{
+        left: 0px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+    }
+    & .lips{
+        right: 10px;
+    }
+    & .eyes{
+        right: -3px;
+        & .eye{
+            &:first-child{
+                right: 25px;
+            }
+            &:nth-child(2){
+                right: 0;
+                &::after{
+                    left: -55px;
+                    top: calc(30% - 1px);
+                    transform: rotate(10deg);
+                }
+            }
+        }
+    }
+    & .ear{
+        left: 0;
+    }
+}
+
+.hand_{
+    &right, &left{
+        position: absolute;       
+        top: 0;
+        width: 20px;
+        height: 40px;
+        background-color: transparent;
+        border-top: 12px solid white;
+    }
+    &left{
+        right: 45px;
+        border-top-left-radius : 100%;
+        border-left: 10px solid white;
+        & .palm{
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            top: 35px;
+            right: 17px;
+            background-color: bisque;
+        }
+    }
+    &left{
+        animation: goingRight_leftHand 0.5s steps(1, end) infinite;
+    }
+
+    &right{
+        left: 45px;
+        border-top-right-radius : 100%;
+        border-right: 10px solid white;
+        & .palm{
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            top: 35px;
+            left: 17px;
+            background-color: bisque;
+        }
+    }
+    &right{
+        animation: goingRight_rightHand 0.5s steps(1, end) infinite;
+    }
+}
+
+.load{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    margin-top: 140px;
+}
+
+@media(max-width: 900px){
+    .hero{
+        scale: 1.2;
+    }
+    .load{
+        margin-top: 100px;
+    } 
+}
+
+@media(max-width: 700px){
+    .hero{
+        scale: 1;
+    }
+    .load{
+        margin-top: 100px;
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 450px){
+    .hero{
+        scale: 0.6;
+    }
+    .load{
+        margin-top: 70px;
+    }
+}

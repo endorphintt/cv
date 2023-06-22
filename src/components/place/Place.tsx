@@ -31,6 +31,7 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
     const [positionBottom, setPB] = useState<number>(0)
     const componentWidth = width
     const componentHight = height
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
     // hero view
     const[side, setSide] = useState<string>('right')
@@ -48,81 +49,179 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
       }, []);
 
     const changePlacePosition = (event: React.WheelEvent<HTMLDivElement>) => {
-            const deltaVW = event.deltaY / (componentWidth / 1500)
-            const deltaVH = event.deltaY / (componentWidth / 600)
+        const deltaVW = event.deltaY / (componentWidth / 1500)
+        const deltaVH = event.deltaY / (componentWidth / 600)
 
-            console.log(positionLeft, deltaVW)
-
-            // hero
-            if(event.deltaY > 0 && side != 'rigth') {
-                setSide('right')
-            } else {
-                setSide('left')
-            }
-            setP(event.deltaY > 0 ? 'walking_right' : 'walking_left')
-            if(positionLeft + deltaVW < 110) {
-                setHero('taras')
-            } else if(positionLeft + deltaVW > 110 && positionLeft + deltaVW < 300 ) {
-                setHero('car')
-            } else if(positionLeft === 1300 && deltaVW < 0) {
-                setHero('rocket')    
-            } else if(positionLeft + deltaVW > 300 && positionLeft + deltaVW < 1000 ) {
-                setHero('plane')
-            } else if(positionLeft + deltaVW > 1000 && positionLeft + deltaVW < 1300 ) {
-                setHero('taras')
-            }  else if(positionLeft + deltaVW > 1300 && positionLeft + deltaVW < 1550) {
-                setHero('rocket')
-            }
-            //
-            
-            if(positionLeft + deltaVW  > 0) {
-                if(positionLeft + deltaVW < 300){
-                    setPL(deltaVW + positionLeft)
-                    setPB(0)
-                } else if ( positionLeft + deltaVW > 300 && positionLeft < 500 ) {
-                    setPL(positionLeft + deltaVW * (2/3))
-                    if(positionBottom <= 100){
-                        setPB(positionBottom + deltaVW * (1/3))
-                    } else {
-                        setPB(100)
-                    }
-                } else if ( positionLeft > 500 && positionLeft < 800) {
-                    setPL(positionLeft + deltaVW)
-                } else if ( positionLeft > 800 && positionLeft < 1000) {
-                    setPL(positionLeft + deltaVW * (2/3))
-                    if(positionBottom - deltaVW * (1/3) > 0){
-                        setPB(positionBottom - deltaVW * (1/3))
-                    } else {
-                        setPB(0)
-                    }
-                } else if ( positionLeft > 1000 && positionLeft < 1300){
-                    setPL(positionLeft + deltaVW)
-                    setPB(0)
-                    if(positionLeft + deltaVW >= 1300) {
-                        setPB(10)
-                        setPL(1300)
-                    }
-                } else if ( positionLeft >= 1300 ){
-                    setPL(1300)
-                    if(positionBottom + deltaVW <= 500 && positionBottom >= 10){
-                        setPB(positionBottom + deltaVW)
-                    } else if(positionBottom < 10){
-                        setPL(1299)
-                        setPB(0)
-                    } else {
-                        setPB(500)
-                    }
+        // hero
+        if(event.deltaY > 0 && side != 'rigth') {
+            setSide('right')
+        } else {
+            setSide('left')
+        }
+        setP(event.deltaY > 0 ? 'walking_right' : 'walking_left')
+        if(positionLeft + deltaVW < 110) {
+            setHero('taras')
+        } else if(positionLeft + deltaVW > 110 && positionLeft + deltaVW < 300 ) {
+            setHero('car')
+        } else if(positionLeft === 1300 && deltaVW < 0) {
+            setHero('rocket')    
+        } else if(positionLeft + deltaVW > 300 && positionLeft + deltaVW < 1000 ) {
+            setHero('plane')
+        } else if(positionLeft + deltaVW > 1000 && positionLeft + deltaVW < 1300 ) {
+            setHero('taras')
+        }  else if(positionLeft + deltaVW > 1300 && positionLeft + deltaVW < 1550) {
+            setHero('rocket')
+        }
+        //
+        
+        if(positionLeft + deltaVW  > 0) {
+            if(positionLeft + deltaVW < 300){
+                setPL(deltaVW + positionLeft)
+                setPB(0)
+            } else if ( positionLeft + deltaVW > 300 && positionLeft < 500 ) {
+                setPL(positionLeft + deltaVW * (2/3))
+                if(positionBottom <= 100){
+                    setPB(positionBottom + deltaVW * (1/3))
+                } else {
+                    setPB(100)
                 }
-            }        
+            } else if ( positionLeft > 500 && positionLeft < 800) {
+                setPL(positionLeft + deltaVW)
+            } else if ( positionLeft > 800 && positionLeft < 1000) {
+                setPL(positionLeft + deltaVW * (2/3))
+                if(positionBottom - deltaVW * (1/3) > 0){
+                    setPB(positionBottom - deltaVW * (1/3))
+                } else {
+                    setPB(0)
+                }
+            } else if ( positionLeft > 1000 && positionLeft < 1300){
+                setPL(positionLeft + deltaVW)
+                setPB(0)
+                if(positionLeft + deltaVW >= 1300) {
+                    setPB(10)
+                    setPL(1300)
+                }
+            } else if ( positionLeft >= 1300 ){
+                setPL(1300)
+                if(positionBottom + deltaVW <= 500 && positionBottom >= 10){
+                    setPB(positionBottom + deltaVW)
+                } else if(positionBottom < 10){
+                    setPL(1299)
+                    setPB(0)
+                } else {
+                    setPB(500)
+                }
+            }
+        }        
+    }
+
+    const [startY, setStartY] = useState<number | null>(null);
+
+    const handleTouchStart = (event: React.TouchEvent) => {
+        const touch = event.touches[0];
+        setStartY(touch.clientY);
+    };
+
+    const handleTouchEnd = (event: React.TouchEvent) => {
+        const touch = event.changedTouches[0];
+        const endY = touch.clientY;
+        
+        if (startY !== null) {
+          const deltaY = endY - startY;
+          const direction = deltaY > 0 ? 'down' : 'up';
+          changeMobilePosition(direction)
+        }
+    
+        setStartY(null);
+    };
+    
+
+    const changeMobilePosition = (direction: string) => {
+        let sign;
+        if(direction === 'up'){
+            sign = 1
+        } else {
+            sign = -1
+        }
+        const deltaVW = sign * 200 / (componentWidth / 1500)
+        const deltaVH = sign * 200 / (componentWidth / 600)
+
+        // hero
+        if(sign > 0 && side != 'rigth') {
+            setSide('right')
+        } else {
+            setSide('left')
+        }
+        setP(sign > 0 ? 'walking_right' : 'walking_left')
+        if(positionLeft + deltaVW < 110) {
+            setHero('taras')
+        } else if(positionLeft + deltaVW > 110 && positionLeft + deltaVW < 300 ) {
+            setHero('car')
+        } else if(positionLeft === 1300 && deltaVW < 0) {
+            setHero('rocket')    
+        } else if(positionLeft + deltaVW > 300 && positionLeft + deltaVW < 1000 ) {
+            setHero('plane')
+        } else if(positionLeft + deltaVW > 1000 && positionLeft + deltaVW < 1300 ) {
+            setHero('taras')
+        }  else if(positionLeft + deltaVW > 1300 && positionLeft + deltaVW < 1550) {
+            setHero('rocket')
+        }
+        //
+        
+        if(positionLeft + deltaVW  > 0) {
+            if(positionLeft + deltaVW < 300){
+                setPL(deltaVW + positionLeft)
+                setPB(0)
+            } else if ( positionLeft + deltaVW > 300 && positionLeft < 500 ) {
+                setPL(positionLeft + deltaVW * (2/3))
+                if(positionBottom <= 100){
+                    setPB(positionBottom + deltaVW * (1/3))
+                } else {
+                    setPB(100)
+                }
+            } else if ( positionLeft > 500 && positionLeft < 800) {
+                setPL(positionLeft + deltaVW)
+            } else if ( positionLeft > 800 && positionLeft < 1000) {
+                setPL(positionLeft + deltaVW * (2/3))
+                if(positionBottom - deltaVW * (1/3) > 0){
+                    setPB(positionBottom - deltaVW * (1/3))
+                } else {
+                    setPB(0)
+                }
+            } else if ( positionLeft > 1000 && positionLeft < 1300){
+                setPL(positionLeft + deltaVW)
+                setPB(0)
+                if(positionLeft + deltaVW >= 1300) {
+                    setPB(10)
+                    setPL(1300)
+                }
+            } else if ( positionLeft >= 1300 ){
+                setPL(1300)
+                if(positionBottom + deltaVW <= 500 && positionBottom >= 10){
+                    setPB(positionBottom + deltaVW)
+                } else if(positionBottom < 10){
+                    setPL(1299)
+                    setPB(0)
+                } else {
+                    setPB(500)
+                }
+            }
+        } else {
+            setPL(0)
+            setPB(0)
+        }   
     }
 
     return (
         <div 
             className={c.place}
             onWheel={changePlacePosition}
+            onTouchStart={handleTouchStart} 
+            onTouchEnd={handleTouchEnd}
             style={{
                 left: `${-positionLeft}vw`,
-                bottom: `${-positionBottom}vh`
+                bottom: `${-positionBottom}vh`,
+                transition: `${isMobile? '1s linear' : 'none'}`
             }}
         >
             <div className={c.hero_container}
@@ -165,7 +264,7 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     height={40} 
                     color='#D37E24' 
                     tablePosition={210}
-                    title='Frondtend 1/2' 
+                    title='Front-end 1/2' 
                     technologies={[{title: 'js', rating: [1, 1, 1, 1, 0]}, {title: 'ts', rating: [1, 1, 1, 1, 0]}, {title: 'react', rating: [1, 1, 1, 1, 1]}, {title: 'redux', rating: [1, 1, 1, 1, 0]}, {title: 'mobX', rating: [1, 1, 1, 0, 0]}]}
                 />
             </div>
@@ -176,7 +275,7 @@ const Place: React.FC<MyComponentProps> = ({ width, height }) => {
                     height={40} 
                     color='#D34C24'  
                     tablePosition={310}
-                    title='frontend 2/2' 
+                    title='front-end 2/2' 
                     technologies={[{title: 'html', rating: [1, 1, 1, 1, 1]}, {title: 'css', rating: [1, 1, 1, 1, 1]}, {title: 'Antd, BS', rating: [1, 1, 1, 0, 0]}, {title: 'Toolkit', rating: [1, 1, 1, 0, 0]}, {title: 'scss/sass', rating: [1, 1, 1, 1, 1]}]}
                 />
             </div>

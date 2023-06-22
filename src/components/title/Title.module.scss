@@ -47,14 +47,6 @@
     animation: moving 5s linear infinite;
 }
 
-@media(max-width: 676px){
-    .title_container{
-        left: 10vw;
-        width: 80vw;
-        height: 40vw;
-    }
-}
-
 .pretitle{
     text-align: center;
     font-size: 3vw;
@@ -106,3 +98,17 @@
         top: 10%;
     }
   }
+
+  @media(max-width: 676px){
+    .title_container{
+        left: 10vw;
+        width: 80vw;
+        height: 40vw;
+    }
+    .subtitle{
+        text-align: center;
+        font-size: 15px;
+        color: rgb(91, 83, 83);
+        text-decoration: none;
+    }  
+}

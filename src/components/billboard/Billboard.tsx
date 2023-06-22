@@ -20,14 +20,14 @@ const Billboard: React.FC<Props> = ({title, positionLeft, tablePosition, dates, 
             <div className={c.points}>
                 {points.map((i) => {
                     return (
-                        <p className={c.points__item}>
+                        <p key={i} className={c.points__item}>
                             {i}
                         </p>
                     )
                 })}
             </div>
             <img src='./img/longcolumn.png' alt='column' className={c.column}/>
-            <img src='./img/MushroomOne.png' alt='mush' className={c.mush}/>
+            <img src='./img/mushroomOne.png' alt='mush' className={c.mush}/>
         </div>
     )
 }

@@ -52,6 +52,7 @@
         left: 0;
         font-size: 25px;
         animation: moving 10s linear infinite;
+        color: #AF40FF;
     }
     & .form__item_textarea{
         height: 40%;
@@ -63,7 +64,7 @@
             height: calc(100% - 20px);
             padding: 20px 10px 0 10px;
             margin: 0;
-            font-size: 16px;
+            font-size: 14px;
             font-family: 'Press Start 2P';
             &::placeholder{
                 color: white;
@@ -80,6 +81,7 @@
             box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
             padding: 0 10px 0 10px;
             height: 100%;
+            font-size: 14px;
             width: 100%; 
             margin: 0;
             width: calc(100% - 20px);

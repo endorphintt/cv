@@ -7,10 +7,11 @@ const Form: React.FC = () => {
     if (state.succeeded) {
         return <p>Thanks for joining!</p>;
     }
+
     return (
         <div className={c.form_container}>
             <FStar />
-            <div className={c.form}>
+            <form onSubmit={handleSubmit} className={c.form}>
                 <div className={c.form__title}>contact</div>
                 <div className={c.form__item}>
                     <input
@@ -45,7 +46,7 @@ const Form: React.FC = () => {
                         id="message"
                         name="message"
                         className={c.form__textarea} 
-                        placeholder="text"
+                        placeholder="message"
                     />
                     <ValidationError 
                         prefix="Message" 
@@ -56,7 +57,7 @@ const Form: React.FC = () => {
                 <button className={c.form__button} type="submit" disabled={state.submitting}>
                     send
                 </button>
-            </div>
+            </form>
         </div>
     )
 }
